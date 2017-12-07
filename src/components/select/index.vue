@@ -127,6 +127,7 @@
             },
 
             handleSelectByClick(option) {
+                
                 this.changedBySelect = true;
                 if (this.multiple) {
                     if (this.selectedValue.indexOf(option.value) > -1) {
@@ -138,9 +139,11 @@
                     }
 
                     this.$emit('input', this.selectedValue);
+                    this.$emit('handleSelectByClick', this.selectedValue);
                 } else {
                     this.selectedOption = { value: option.value, label: option.label };
                     this.$emit('input', option.value);
+                    this.$emit('handleSelectByClick', option.value);
                     this.hideMenu();
                 }
             },
